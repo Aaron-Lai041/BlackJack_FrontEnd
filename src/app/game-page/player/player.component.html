@@ -1,0 +1,97 @@
+<div>
+  <app-player-table></app-player-table>
+  
+  <!-- 牌桌、玩家、錢、時間條、踢人按鈕 -->
+  <div class="player">
+    <div *ngFor="let player of players" class="player{{ player.index }}">
+      <div class="flex place-content-center">{{ player.name }}</div>
+      <app-money-counter></app-money-counter>
+      <app-timestamp-progress-bar></app-timestamp-progress-bar>
+      <button
+        mat-mini-fab
+        color="primary"
+        matTooltip="Kick this player."
+        [matTooltipPosition]="'above'"
+        class="kick-player-btn"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- 原始內容 -->
+  <!-- <div class="player">
+    <div class="player1">
+      <div class="flex place-content-center">player1</div>
+      <app-money-counter></app-money-counter>
+      <app-timestamp-progress-bar></app-timestamp-progress-bar>
+
+      <button
+        mat-mini-fab
+        color="primary"
+        matTooltip="Kick this player."
+        [matTooltipPosition]="'above'"
+        class="kick-player-btn"
+      >
+      <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="player2">
+      <div class="flex place-content-center">player2</div>
+      <app-money-counter></app-money-counter>
+      <app-timestamp-progress-bar></app-timestamp-progress-bar>
+      <button
+        mat-mini-fab
+        color="primary"
+        matTooltip="Kick this player."
+        [matTooltipPosition]="'above'"
+        class="kick-player-btn"
+      >
+      <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="player3">
+      <div class="flex place-content-center">player3</div>
+      <app-money-counter></app-money-counter>
+      <app-timestamp-progress-bar></app-timestamp-progress-bar>
+      <button
+        mat-mini-fab
+        color="primary"
+        matTooltip="Kick this player."
+        [matTooltipPosition]="'above'"
+        class="kick-player-btn"
+      >
+      <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="player4">
+      <div class="flex place-content-center">player4</div>
+      <app-money-counter></app-money-counter>
+      <app-timestamp-progress-bar></app-timestamp-progress-bar>
+      <button
+        mat-mini-fab
+        color="primary"
+        matTooltip="Kick this player."
+        [matTooltipPosition]="'above'"
+        class="kick-player-btn"
+      >
+      <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="player5">
+      <div class="flex place-content-center">player5</div>
+      <app-money-counter></app-money-counter>
+      <app-timestamp-progress-bar></app-timestamp-progress-bar>
+      <button
+        mat-mini-fab
+        color="primary"
+        matTooltip="Kick this player."
+        [matTooltipPosition]="'above'"
+        class="kick-player-btn"
+      >
+      <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div> -->
+</div>

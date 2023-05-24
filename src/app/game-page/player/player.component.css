@@ -1,0 +1,98 @@
+:host {
+    display: grid;
+    place-items: center;
+  }
+  
+  :host > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .hand {
+    display: grid;
+    grid-auto-columns: calc(var(--playing-card-width) * 0.5);
+    grid-auto-flow: column;
+  }
+  
+  .primary-border {
+    outline-color: var(--theme-primary-color);
+    outline-width: 2px;
+    outline-style: solid;
+  }
+
+.player {
+  position: relative;
+  right: 1.5rem;
+  z-index: 3;
+  
+}
+
+.player1 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 3.5rem;
+  left: 26rem;
+  width: 100px;
+  height: 60px;
+  background-color: gray;
+  opacity: 0.5;
+  border-radius: 10%;
+  padding: 3px;
+
+}
+
+.player2 {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background-color: gray;
+  opacity: 0.5;
+  bottom: 5.5rem;
+  left: 15rem;
+  border-radius: 10%;
+  padding: 3px;
+}
+
+.player3 {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background-color: gray;
+  opacity: 0.5;
+  bottom: 5.5rem;
+  left: 38rem;
+  border-radius: 10%;
+  padding: 3px;
+}
+
+.player4 {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background-color: gray;
+  opacity: 0.5;
+  bottom: 10rem;
+  left: 8rem;
+  border-radius: 10%;
+  padding: 3px;
+}
+
+.player5 {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background-color: gray;
+  opacity: 0.5;
+  bottom: 10.5rem;
+  left: 44rem;
+  border-radius: 10%;
+  padding: 3px;
+}
+
+.kick-player-btn {
+  width: 25px;
+  height: 25px;
+  bottom: 4rem;
+  right: 0.5rem;
+}
