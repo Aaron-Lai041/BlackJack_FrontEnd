@@ -20,6 +20,16 @@ export class PlayerComponent {
     this.gameResult = result;
   }
 
+  getFinalBetValue(): number {
+    return this['finalBet'];
+  }
+
+  finalBet: number = 0;
+
+  updateFinalBet(finalBet: number): void {
+    this.finalBet = finalBet;
+  }
+
   
   players = [
     { name: '沉睡山羊', index: 1 },

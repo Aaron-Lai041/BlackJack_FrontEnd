@@ -43,8 +43,6 @@
     </div>
   </div>
 
-  <!-- 玩家按鈕 -->
-
   <!-- 顯示2號玩家手牌 -->
   <div class="player2">
     <div class="player2-card">
@@ -70,10 +68,10 @@
       <div class="pill-menu">
         <span class="whitespace-normal">
           Current Bet:
-          <span class="inline-block text-center" style="width: 4ch">100</span>
+          <span class="inline-block text-center" style="width: 4ch">{{finalBet}}</span>
         </span>
 
-        <span class="whitespace-normal"> Change Bet: {{ betChange }}</span>
+        <span class="whitespace-normal"> Change Bet: {{ totalBetChange }}</span>
         <button (click)="changeBet(-50)">- 50</button>
         <button (click)="changeBet(-10)">- 10</button>
         <button (click)="changeBet(10)">+ 10</button>

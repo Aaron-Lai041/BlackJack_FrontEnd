@@ -20,6 +20,7 @@ import {
 })
 export class PlayingCardComponent {
   @Output() gameResultEvent = new EventEmitter<string>();
+  @Output() finalBetChange: EventEmitter<number> = new EventEmitter<number>();
 
   imagePath = '../../../assets/images/Cards/';
 
@@ -27,8 +28,7 @@ export class PlayingCardComponent {
   playerCards: string[] = []; // 玩家1手牌
   player2Cards: string[] = []; // 玩家2手牌
 
-  currentBet: number = 100;
-  betChange: number = 0;
+  
 
   gameResult: string = ''; // 遊戲結果
   player2gameResult: string = ''; // 玩家2遊戲結果
@@ -66,6 +66,7 @@ export class PlayingCardComponent {
   readyClicked(): void {
     this.readyMenuHidden = !this.readyMenuHidden;
     this.dealCards();
+    this.finalBetChange.emit(this.finalBet);
   }
 
   unReadyClicked(): void {
@@ -268,6 +269,10 @@ export class PlayingCardComponent {
     }
   }
 
+finalBet: number = 100;
+currentBet: number = 100;
+betChange: number = 0;
+totalBetChange: number = 0;
 
 // 賭注按鈕
 changeBet(amount: number): void {
@@ -278,6 +283,7 @@ changeBet(amount: number): void {
         const betDifference = newBet - parseInt(inputElement.value, 10);
         this.currentBet = newBet;
         this.betChange = betDifference;
+        this.totalBetChange += betDifference;
       }
     }
 }
@@ -286,7 +292,7 @@ setBet(): void {
    const inputElement = (document.querySelector('input') as HTMLInputElement);
     if (inputElement) {
       const newBet = parseInt(inputElement.value, 10);
-      this.currentBet = newBet;
+      this.finalBet = newBet;
     }
 }
 }

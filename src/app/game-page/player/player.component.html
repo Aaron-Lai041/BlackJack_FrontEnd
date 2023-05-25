@@ -3,28 +3,31 @@
   
   <!-- 牌桌、玩家、錢、時間條、踢人按鈕 -->
   <div class="player">
-    
     <div *ngFor="let player of players" class="player{{ player.index }}">
       <div class="player-people">{{ player.name }}</div>
-      <app-money-counter></app-money-counter>
+      <ng-container *ngIf="player.index === 1 ">
+        <app-money-counter [finalBet]="finalBet" [gameResult]="gameResult" ></app-money-counter>
+      </ng-container>
+      <ng-container *ngIf="player.index === 3 || player.index === 2" >
+        <app-money-counter></app-money-counter>
+      </ng-container>
       <app-timestamp-progress-bar></app-timestamp-progress-bar>
       <ng-container *ngIf="player.index === 2 || player.index === 3">
-      <button
-        mat-mini-fab
-        color="primary"
-        matTooltip="Kick this player."
-        [matTooltipPosition]="'above'"
-        class="kick-player-btn"
-      >
-        <mat-icon>close</mat-icon>
-      
-      </button>
-    </ng-container>
+        <button
+          mat-mini-fab
+          color="primary"
+          matTooltip="Kick this player."
+          [matTooltipPosition]="'above'"
+          class="kick-player-btn"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </ng-container>
     </div>
   </div>
   <!-- 牌畫面 -->
   <div class="playing-card1">
-    <app-playing-card (gameResultEvent)="handleGameResult($event)"></app-playing-card>
+    <app-playing-card (gameResultEvent)="handleGameResult($event)" (finalBetChange)="updateFinalBet($event)"></app-playing-card>
   </div>
  
  
