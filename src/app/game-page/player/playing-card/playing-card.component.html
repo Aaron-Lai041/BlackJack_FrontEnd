@@ -46,9 +46,8 @@
   <!-- 玩家按鈕 -->
 
   <!-- 顯示2號玩家手牌 -->
-  <div class="player2"  >
-    
-    <div  class="player2-card">
+  <div class="player2">
+    <div class="player2-card">
       <img
         class="card-size"
         *ngFor="let card of player2Cards"
@@ -58,40 +57,35 @@
       />
     </div>
     <div *ngIf="startPlayer2ValueHidden">
-      <p class="card-value2" >點數總和: {{ getPlayer2Points() }}</p>
+      <p class="card-value2">點數總和: {{ getPlayer2Points() }}</p>
       <div class="player2State">
-        <span >{{ player2gameResult }}</span>
+        <span>{{ player2gameResult }}</span>
       </div>
     </div>
-</div>
+  </div>
 
+  <!-- 玩家按鈕 -->
   <div class="player-action-btn">
     <div class="flex flex-col-reverse sm:flex-col gap-4 mt-20 pt-10">
       <div class="pill-menu">
         <span class="whitespace-normal">
           Current Bet:
-          <span
-            class="inline-block text-center"
-            style="width: 4ch"
-            data-cy="bet-value"
-            >100</span
-          >
+          <span class="inline-block text-center" style="width: 4ch">100</span>
         </span>
 
-        <span class="whitespace-normal"> Change Bet: </span>
-        <button>- 50</button>
-        <button>- 10</button>
-        <button>+ 10</button>
-        <button>+ 50</button>
+        <span class="whitespace-normal"> Change Bet: {{ betChange }}</span>
+        <button (click)="changeBet(-50)">- 50</button>
+        <button (click)="changeBet(-10)">- 10</button>
+        <button (click)="changeBet(10)">+ 10</button>
+        <button (click)="changeBet(50)">+ 50</button>
 
-        <button>Set Bet:</button>
+        <button (click)="setBet()">Set Bet:</button>
         <input
           class="w-24"
           #betInput
           type="number"
-          value="100"
+          [value]="currentBet"
           appInputConstrain
-          data-cy="bet-input"
         />
       </div>
 

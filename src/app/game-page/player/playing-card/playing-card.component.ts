@@ -25,8 +25,10 @@ export class PlayingCardComponent {
 
   dealerCards: string[] = []; // 莊家手牌
   playerCards: string[] = []; // 玩家1手牌
-
   player2Cards: string[] = []; // 玩家2手牌
+
+  currentBet: number = 100;
+  betChange: number = 0;
 
   gameResult: string = ''; // 遊戲結果
   player2gameResult: string = ''; // 玩家2遊戲結果
@@ -81,7 +83,7 @@ export class PlayingCardComponent {
     // 開始發牌動畫
     this.dealAnimationInProgress = true;
 
-    // 延遲手牌出現的時間
+    // 延遲莊家、玩家手牌出現的時間
     setTimeout(() => {
       this.playerCards.push(this.getRandomCard());
     }, 500);
@@ -92,7 +94,7 @@ export class PlayingCardComponent {
 
     setTimeout(() => {
       this.player2Cards.push(this.getRandomCard());
-    }, 1500); // 玩家2出牌
+    }, 1500); 
 
     setTimeout(() => {
       this.playerCards.push(this.getRandomCard());
@@ -100,7 +102,7 @@ export class PlayingCardComponent {
 
     setTimeout(() => {
       this.player2Cards.push(this.getRandomCard());
-    }, 2500); // 玩家2出牌
+    }, 2500); 
 
 
     setTimeout(() => {
@@ -157,6 +159,8 @@ export class PlayingCardComponent {
     return this.calculatePoints(this.player2Cards);
   }
 
+
+  
   reset() {
     // 重置遊戲狀態
     this.dealerCards = [];
@@ -177,7 +181,7 @@ export class PlayingCardComponent {
     // 計算莊家手牌的點數總和
     return this.calculatePoints(this.dealerCards);
   }
-
+  // 獲得隨機卡牌
   private getRandomCard(): string {
     // 隨機獲取一張撲克牌
     const suit =
@@ -195,7 +199,7 @@ export class PlayingCardComponent {
     }
     return cards;
   }
-
+  // 計算分數
   private calculatePoints(cards: string[]): number {
     // 計算手牌的點數總和
     let points = 0;
@@ -216,7 +220,7 @@ export class PlayingCardComponent {
     }
     return points;
   }
-
+  // 確認遊戲結果
   private checkGameResult() {
     this.startDealerValueHidden = true;
     const playerPoints = this.getPlayerPoints();
@@ -263,4 +267,30 @@ export class PlayingCardComponent {
       this.player2gameResult = '😐'
     }
   }
+
+
+// 賭注按鈕
+changeBet(amount: number): void {
+    const inputElement = (document.querySelector('input') as HTMLInputElement);
+    if (inputElement) {
+      const newBet = parseInt(inputElement.value, 10) + amount;
+      if (newBet >= 0) {
+        const betDifference = newBet - parseInt(inputElement.value, 10);
+        this.currentBet = newBet;
+        this.betChange = betDifference;
+      }
+    }
 }
+
+setBet(): void {
+   const inputElement = (document.querySelector('input') as HTMLInputElement);
+    if (inputElement) {
+      const newBet = parseInt(inputElement.value, 10);
+      this.currentBet = newBet;
+    }
+}
+}
+
+
+
+
