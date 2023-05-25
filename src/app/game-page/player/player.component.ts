@@ -10,14 +10,21 @@ export class PlayerComponent {
   type: 'dealer' | 'player' = 'player';
   scoreBottom: boolean | null = false;
 
+  
+
   constructor() { }
+
+  gameResult: string = '' // 存储游戏结果的变量
+
+  handleGameResult(result: string) {
+    this.gameResult = result;
+  }
+
   
   players = [
-    { name: 'player1', index: 1 },
-    { name: 'player2', index: 2 },
+    { name: '沉睡山羊', index: 1 },
+    { name: '火山孝子', index: 2 },
     { name: 'player3', index: 3 },
-    { name: 'player4', index: 4 },
-    { name: 'player5', index: 5 }
   ];
 
 }

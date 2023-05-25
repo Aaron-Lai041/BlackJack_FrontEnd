@@ -1,4 +1,4 @@
-:host {
+/* :host {
     display: grid;
     place-items: center;
   }
@@ -18,13 +18,19 @@
     outline-color: var(--theme-primary-color);
     outline-width: 2px;
     outline-style: solid;
-  }
+  } */
 
 .player {
   position: relative;
   right: 1.5rem;
   z-index: 3;
   
+}
+
+.player-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .player1 {
@@ -48,8 +54,8 @@
   height: 60px;
   background-color: gray;
   opacity: 0.5;
-  bottom: 5.5rem;
-  left: 15rem;
+  bottom: 8rem;
+  left: 11rem;
   border-radius: 10%;
   padding: 3px;
 }
@@ -60,32 +66,8 @@
   height: 60px;
   background-color: gray;
   opacity: 0.5;
-  bottom: 5.5rem;
-  left: 38rem;
-  border-radius: 10%;
-  padding: 3px;
-}
-
-.player4 {
-  position: absolute;
-  width: 100px;
-  height: 60px;
-  background-color: gray;
-  opacity: 0.5;
-  bottom: 10rem;
-  left: 8rem;
-  border-radius: 10%;
-  padding: 3px;
-}
-
-.player5 {
-  position: absolute;
-  width: 100px;
-  height: 60px;
-  background-color: gray;
-  opacity: 0.5;
-  bottom: 10.5rem;
-  left: 44rem;
+  bottom: 7.5rem;
+  left: 41rem;
   border-radius: 10%;
   padding: 3px;
 }
@@ -96,3 +78,14 @@
   bottom: 4rem;
   right: 0.5rem;
 }
+
+.playing-card1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 20vh;
+  /* background-color: antiquewhite; */
+  /* opacity: 0.7; */
+  z-index: 3;  
+}
+

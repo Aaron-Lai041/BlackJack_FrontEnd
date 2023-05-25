@@ -30,7 +30,7 @@ export class LandingPageComponent {
     this.isButtonDisabled = true;
   }
   navigateToGamePage() {
-    this.router.navigate(['/GameRoom']); // 导航到 game-page 路由
+    this.router.navigate(['/GameRoom']); //  game-page 路由
   }
 
 }
