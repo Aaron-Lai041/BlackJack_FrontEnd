@@ -21,14 +21,12 @@ import {
 export class PlayingCardComponent {
   @Output() gameResultEvent = new EventEmitter<string>();
   @Output() finalBetChange: EventEmitter<number> = new EventEmitter<number>();
-
+  @Output() readyProgressClicked: EventEmitter<void> = new EventEmitter<void>();
   imagePath = '../../../assets/images/Cards/';
 
   dealerCards: string[] = []; // 莊家手牌
   playerCards: string[] = []; // 玩家1手牌
   player2Cards: string[] = []; // 玩家2手牌
-
-  
 
   gameResult: string = ''; // 遊戲結果
   player2gameResult: string = ''; // 玩家2遊戲結果
@@ -67,6 +65,7 @@ export class PlayingCardComponent {
     this.readyMenuHidden = !this.readyMenuHidden;
     this.dealCards();
     this.finalBetChange.emit(this.finalBet);
+    this.readyProgressClicked.emit();
   }
 
   unReadyClicked(): void {
@@ -95,7 +94,7 @@ export class PlayingCardComponent {
 
     setTimeout(() => {
       this.player2Cards.push(this.getRandomCard());
-    }, 1500); 
+    }, 1500);
 
     setTimeout(() => {
       this.playerCards.push(this.getRandomCard());
@@ -103,8 +102,7 @@ export class PlayingCardComponent {
 
     setTimeout(() => {
       this.player2Cards.push(this.getRandomCard());
-    }, 2500); 
-
+    }, 2500);
 
     setTimeout(() => {
       this.dealerCards.push(this.getRandomCard());
@@ -160,8 +158,6 @@ export class PlayingCardComponent {
     return this.calculatePoints(this.player2Cards);
   }
 
-
-  
   reset() {
     // 重置遊戲狀態
     this.dealerCards = [];
@@ -253,30 +249,30 @@ export class PlayingCardComponent {
 
     if (player2Points > 21) {
       // 玩家2爆牌
-      this.player2gameResult = '🙈'
+      this.player2gameResult = '🙈';
     } else if (player2Points === 21 && this.player2Cards.length === 2) {
       // 玩家2獲得21點
-      this.player2gameResult = '😍'
+      this.player2gameResult = '😍';
     } else if (player2Points > dealerPoints) {
       // 玩家2點數大於莊家
-      this.player2gameResult = '😎'
+      this.player2gameResult = '😎';
     } else if (player2Points < dealerPoints) {
       // 玩家2點數小於莊家
-      this.player2gameResult = '😭'
+      this.player2gameResult = '😭';
     } else {
       // 玩家2和莊家點數相同
-      this.player2gameResult = '😐'
+      this.player2gameResult = '😐';
     }
   }
 
-finalBet: number = 100;
-currentBet: number = 100;
-betChange: number = 0;
-totalBetChange: number = 0;
+  finalBet: number = 100;
+  currentBet: number = 100;
+  betChange: number = 0;
+  totalBetChange: number = 0;
 
-// 賭注按鈕
-changeBet(amount: number): void {
-    const inputElement = (document.querySelector('input') as HTMLInputElement);
+  // 賭注按鈕
+  changeBet(amount: number): void {
+    const inputElement = document.querySelector('input') as HTMLInputElement;
     if (inputElement) {
       const newBet = parseInt(inputElement.value, 10) + amount;
       if (newBet >= 0) {
@@ -286,17 +282,13 @@ changeBet(amount: number): void {
         this.totalBetChange += betDifference;
       }
     }
-}
+  }
 
-setBet(): void {
-   const inputElement = (document.querySelector('input') as HTMLInputElement);
+  setBet(): void {
+    const inputElement = document.querySelector('input') as HTMLInputElement;
     if (inputElement) {
       const newBet = parseInt(inputElement.value, 10);
       this.finalBet = newBet;
     }
+  }
 }
-}
-
-
-
-

@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
-
-
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { TimestampProgressBarComponent } from './timestamp-progress-bar/timestamp-progress-bar.component';
+import { PlayingCardComponent } from './playing-card/playing-card.component';
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
-export class PlayerComponent {
+export class PlayerComponent  {
+  
+  
   type: 'dealer' | 'player' = 'player';
   scoreBottom: boolean | null = false;
-
-  
 
   constructor() { }
 
@@ -36,5 +36,22 @@ export class PlayerComponent {
     { name: '火山孝子', index: 2 },
     { name: 'player3', index: 3 },
   ];
+
+
+  // 進度條啟動
+ 
+  progressValue: number = 100;
+  durationInSeconds: number = 30;
+  isCountdownStarted: boolean = false;
+
+  ngOnInit() {}
+
+  onReadyButtonClick(): void {
+    this.isCountdownStarted = !this.isCountdownStarted;
+  }
+
+  onProgressUpdate(value: number): void {
+    this.progressValue = value;
+  }
 
 }

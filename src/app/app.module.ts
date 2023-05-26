@@ -18,7 +18,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LayoutModule } from '@angular/cdk/layout';
 import { GamePageComponent } from './game-page/game-page.component';
 import { PlayerComponent } from './game-page/player/player.component';
-import { PlayerActionComponent } from './game-page/player-action/player-action.component';
 import { HandScoreComponent } from './game-page/player/hand-score/hand-score.component';
 import { MoneyCounterComponent } from './game-page/player/money-counter/money-counter.component';
 import { PlayingCardComponent } from './game-page/player/playing-card/playing-card.component';
@@ -33,7 +32,6 @@ import { SettingComponent } from './game-page/player/setting/setting.component';
     LandingPageComponent,
     GamePageComponent,
     PlayerComponent,
-    PlayerActionComponent,
     HandScoreComponent,
     MoneyCounterComponent,
     PlayingCardComponent,

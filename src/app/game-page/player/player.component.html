@@ -5,13 +5,13 @@
   <div class="player">
     <div *ngFor="let player of players" class="player{{ player.index }}">
       <div class="player-people">{{ player.name }}</div>
-      <ng-container *ngIf="player.index === 1 ">
+      <ng-container *ngIf="player.index === 1 || player.index === 2">
         <app-money-counter [finalBet]="finalBet" [gameResult]="gameResult" ></app-money-counter>
+        <app-timestamp-progress-bar ></app-timestamp-progress-bar>
       </ng-container>
-      <ng-container *ngIf="player.index === 3 || player.index === 2" >
+      <ng-container *ngIf="player.index === 3 " >
         <app-money-counter></app-money-counter>
       </ng-container>
-      <app-timestamp-progress-bar></app-timestamp-progress-bar>
       <ng-container *ngIf="player.index === 2 || player.index === 3">
         <button
           mat-mini-fab
@@ -27,7 +27,7 @@
   </div>
   <!-- 牌畫面 -->
   <div class="playing-card1">
-    <app-playing-card (gameResultEvent)="handleGameResult($event)" (finalBetChange)="updateFinalBet($event)"></app-playing-card>
+    <app-playing-card (gameResultEvent)="handleGameResult($event)" (finalBetChange)="updateFinalBet($event)" ></app-playing-card>
   </div>
  
  
